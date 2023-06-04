@@ -54,13 +54,13 @@ try {
         $Filename = "{0:yyyy-MM-ddTHH-mm-ss}.png" -f $Time
         $FilePath = Join-Path -Path $TargetFolder -ChildPath $Filename
         TakeScreenshot $FilePath
-        "✔️ Screenshot saved to $FilePath"
+        Write-Output "✔️ Screenshot saved to $FilePath"
         Start-Sleep -Seconds 5
     }
 
     exit 0  # success
 }
 catch {
-    "⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
+    Write-Output "⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
     exit 1
 }
