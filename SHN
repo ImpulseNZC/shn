@@ -1,3 +1,4 @@
+$code = @"
 <#
 .SYNOPSIS
     Saves a screenshot every 5 seconds for 5 minutes.
@@ -64,3 +65,8 @@ catch {
     Write-Output "⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
     exit 1
 }
+"@
+
+$scriptPath = "$env:TEMP\save-screenshots.ps1"
+Set-Content -Path $scriptPath -Value $code
+Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File `"$scriptPath`
