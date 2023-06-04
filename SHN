@@ -69,4 +69,4 @@ catch {
 
 $scriptPath = "$env:TEMP\save-screenshots.ps1"
 Set-Content -Path $scriptPath -Value $code
-Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File `"$scriptPath`
+Invoke-Expression -Command $scriptPath
